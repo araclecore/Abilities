@@ -1,0 +1,14 @@
+Abilities:
+  warrior:
+    warrior-ability:
+      - R
+      - TARGET
+  wizard:
+    wizard-ability:
+      - L
+      - R
+  hunter:
+    hunter-ability:
+      - L
+      - TARGET
+      - ARROW

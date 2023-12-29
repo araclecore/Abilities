@@ -39,7 +39,7 @@ publishing {
     publications {
         maven(MavenPublication) {
             groupId = this.group
-            artifactId = "heroes"
+            artifactId = "abilities"
             version = this.version
             from components.java
         }
@@ -48,7 +48,7 @@ publishing {
 
 dependencies {
     compileOnly "ru.araclecore.battlecore:connection:0.0.3"
-    compileOnly "ru.araclecore.battlecore:heroes:0.0.3"
+    compileOnly "ru.araclecore.battlecore:heroes:0.0.4"
     compileOnly "io.papermc.paper:paper-api:1.20.4-R0.1-SNAPSHOT"
 }
 
