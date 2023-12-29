@@ -1,0 +1,55 @@
+plugins {
+    id 'java'
+    id "maven-publish"
+}
+
+group = 'ru.araclecore.battlecore'
+version = '0.0.1'
+
+repositories {
+    mavenCentral()
+    maven {
+        name = "papermc-repo"
+        url = "https://repo.papermc.io/repository/maven-public/"
+    }
+    maven {
+        name = "sonatype"
+        url = "https://oss.sonatype.org/content/groups/public/"
+    }
+    maven {
+        url = "https://maven.pkg.github.com/araclecore/*"
+        credentials {
+            username = System.getenv("GITHUB_ACTOR")
+            password = System.getenv("GITHUB_TOKEN")
+        }
+    }
+}
+
+publishing {
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = "https://maven.pkg.github.com/araclecore/Connection"
+            credentials {
+                username = System.getenv("GITHUB_ACTOR")
+                password = System.getenv("GITHUB_TOKEN")
+            }
+        }
+    }
+    publications {
+        maven(MavenPublication) {
+            groupId = this.group
+            artifactId = "heroes"
+            version = this.version
+            from components.java
+        }
+    }
+}
+
+dependencies {
+    compileOnly "ru.araclecore.battlecore:connection:0.0.3"
+    compileOnly "ru.araclecore.battlecore:heroes:0.0.3"
+    compileOnly "io.papermc.paper:paper-api:1.20.4-R0.1-SNAPSHOT"
+}
+
+tasks.withType(JavaCompile)*.options*.encoding = "UTF-8"

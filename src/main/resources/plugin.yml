@@ -1,0 +1,10 @@
+name: Abilities
+version: '${version}'
+main: ru.araclecore.battlecore.abilities.Abilities
+api-version: '1.20'
+prefix: Abilities
+load: STARTUP
+depend: [Heroes, Connection]
+authors: [aracle]
+description: Abilities module for BattleCore
+website: adventures-server.ru
